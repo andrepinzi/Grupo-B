@@ -46,6 +46,14 @@ obj_endereco = Endereco ("Angola", "luanda", "cacuaco", "nova_urbanizaçaõ", "1
 obj=Agenda("Patricia", 944897942, "patriciatito@gmail.com", "0094A", obj_endereco)
 lista.append(obj)
 
+obj_endereco = Endereco ("Angola", "luanda", "Viana", "nova_urbanizaçaõ", "1453")
+obj=Agenda("Eriwami", 932897312, "eriwami09@gmail.com", "001YA", obj_endereco)
+lista.append(obj)
+
+obj_endereco = Endereco ("Angola", "Bengo", "Dembos", "nova_urbanizaçaõ", "1453")
+obj=Agenda("Agostinho", 934877942, "agostinho34@gmail.com", "209R2", obj_endereco)
+lista.append(obj)
+"""
 for elemento in lista:
 #listar detalhes dos contactos 
     print("   ««««« «««« ««« «« « » »» »»» »»»» »»»»»")
@@ -59,5 +67,13 @@ for elemento in lista:
     print(elemento.localizacao.municipio)
     print(elemento.localizacao.rua)
     print(elemento.localizacao.casa)
-
-obj.adicionar()
+"""
+print("    ««««« «««« ««« «« «» »» »»» »»»» »»»»»\n")
+print(f"1. Adicionar\n2. Editar\n3. Remover\n4. Procurar\n5. Listar")
+opcao = int(input("Escolha uma das opções de 1 - 5:\n"))
+match opcao:
+    case 1:
+        obj.adicionar()
+    case 5:
+        for elemento in lista:
+            print(f"{elemento.nome}: {elemento.numero}")
