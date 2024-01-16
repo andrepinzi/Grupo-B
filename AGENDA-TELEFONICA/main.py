@@ -49,6 +49,43 @@ class Agenda (Contacto):
                     valor += 1
                     if valor == (len(lista)):
                         print(f"\n{nome} nao foi encontrado!")
+                        
+    def procurar(self):
+        n = 0
+        valor = 0
+        while n == 0:
+            opc = int(input(f"Procurar a partir de: \n1. Nome\n2. Numero\n"))
+            if opc == 1:
+                nome = input("Insira nome: ")
+                for elemento in lista:
+                    if elemento.nome == nome:
+                        if elemento.localizacao.pais == "Angola":
+                            print(f"{elemento.nome}: +244 {elemento.numero}")
+                        else:
+                            print(f"{elemento.nome}: +00 {elemento.numero}")
+                        n = 1
+                    else:
+                        valor += 1
+                        if valor == (len(lista)):
+                            print(f"\n{nome} nao foi encontrado!")
+                            n = 1
+            elif opc == 2:
+                numero = int(input("Insira numero: "))
+                for elemento in lista:
+                    if elemento.numero == numero:
+                        if elemento.localizacao.pais == "Angola":
+                            print(f"{elemento.nome}: +244 {elemento.numero}")
+                        else:
+                            print(f"{elemento.nome}: +00 {elemento.numero}")
+                        n = 1
+                    else:
+                        valor += 1
+                        if valor == (len(lista)):
+                            print(f"\n{numero} nao foi encontrado!")
+                            n = 1
+            else:
+                n = 0
+                print(f"Escolha simplismente umas das opções: ")                        
 
     def listar(self):
         print(f"Todos contactos: {len(lista)}\n")
