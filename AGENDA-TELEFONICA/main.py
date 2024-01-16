@@ -1,8 +1,7 @@
 from class_endereco import Endereco
+import os
 #importando a classe endereço
 lista = [ ]
-print("««««««« «««««« ««« «« « » »» »»» »»»»»» »»»»»»»")
-print(f"  «««--««    Agenda Telefonica    »»--»»»»»")
 # Inciando a classe Contacto
 class Contacto():
     def __init__(self, nome, numero, email, cod_postal, obj_endereco):
@@ -16,42 +15,42 @@ class Contacto():
 class Agenda (Contacto):
     def __init__(self, nome, numero, email, cod_postal, obj_endereco):
         super().__init__(nome, numero, email, cod_postal, obj_endereco)
-        self.contactos = []
 
     def adicionar (self):
-        nome = input("Digite o nome do contato: ")
-        numero = int(input("Digite o número de telefone do contato: "))
+        nome = input("Digite o nome: ")
+        numero = int(input("Digite o número de telefone: "))
         email = input("Digite o e-mail: ")
         cod_postal = input("Digite o codigo postal: ")
-        pais = input("Digite o nome do pais: ")
-        provincia = input("Digite o nome do provincia: ")
-        municipio = input("Digite o nome do municipio: ")
-        rua = input("Digite o nome do rua: ")
-        casa = input("Digite o nome do casa: ")
+        pais = input("Informe o país:  ")
+        provincia = input("Informe a província: ")
+        municipio = input("Informe o município: ")
+        rua = input("Informe a rua: ")
+        casa = input("Informe o nº da casa: ")
         obj_endereco = Endereco(pais, provincia, municipio, rua, casa)
         obj = Agenda(nome, numero, email, cod_postal, obj_endereco)
         lista.append(obj)
+        os.system("cls")
         print("Contacto Adicionado!")
 
 
 obj_endereco = Endereco ("Angola", "luanda", "cazenga", "17", "s/n")
-obj=Agenda("Andre", 925848946, "andrepinzi@gmail.com", "4319XA", obj_endereco)
+obj = Agenda ("Andre", 925848946, "andrepinzi@gmail.com", "4319XA", obj_endereco)
 lista.append(obj)
 
 obj_endereco = Endereco ("Angola", "luanda", "belas", "zona_verde", "153")
-obj=Agenda("Antunes", 935847946, "antunesvitae@gmail.com", "009XA", obj_endereco)
+obj = Agenda ("Antunes", 935847946, "antunesvitae@gmail.com", "009XA", obj_endereco)
 lista.append(obj)
 
 obj_endereco = Endereco ("Angola", "luanda", "cacuaco", "nova_urbanizaçaõ", "1453")
-obj=Agenda("Patricia", 944897942, "patriciatito@gmail.com", "0094A", obj_endereco)
+obj = Agenda ("Esperanca", 944471642, "esperanaatito@gmail.com", "0094A", obj_endereco)
 lista.append(obj)
 
 obj_endereco = Endereco ("Angola", "luanda", "Viana", "nova_urbanizaçaõ", "1453")
-obj=Agenda("Eriwami", 932897312, "eriwami09@gmail.com", "001YA", obj_endereco)
+obj = Agenda ("Eriwami", 932897312, "eriwami09@gmail.com", "001YA", obj_endereco)
 lista.append(obj)
 
 obj_endereco = Endereco ("Angola", "Bengo", "Dembos", "nova_urbanizaçaõ", "1453")
-obj=Agenda("Agostinho", 934877942, "agostinho34@gmail.com", "209R2", obj_endereco)
+obj = Agenda ("Cistina", 934877942, "agostinho34@gmail.com", "209R2", obj_endereco)
 lista.append(obj)
 """
 for elemento in lista:
@@ -68,12 +67,21 @@ for elemento in lista:
     print(elemento.localizacao.rua)
     print(elemento.localizacao.casa)
 """
+print("««««««« «««««« ««« «« « » »» »»» »»»»»» »»»»»»»")
+print(f"  «««--««    Agenda Telefonica    »»--»»»»»")
 print("    ««««« «««« ««« «« «» »» »»» »»»» »»»»»\n")
+
 print(f"1. Adicionar\n2. Editar\n3. Remover\n4. Procurar\n5. Listar")
 opcao = int(input("Escolha uma das opções de 1 - 5:\n"))
 match opcao:
     case 1:
         obj.adicionar()
+    case 2:
+        obj.editar()
+    case 3:
+        obj.remover()
+    case 4:
+        obj.procurar()
     case 5:
         for elemento in lista:
             print(f"{elemento.nome}: {elemento.numero}")
