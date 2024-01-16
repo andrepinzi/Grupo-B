@@ -1,8 +1,6 @@
 from class_endereco import Endereco
 import os
-#importando a classe endereço
-lista = [ ]
-# Inciando a classe Contacto
+lista = []
 class Contacto():
     def __init__(self, nome, numero, email, cod_postal, obj_endereco):
         self.nome = nome
@@ -11,12 +9,13 @@ class Contacto():
         self.cod_post = cod_postal
         self.localizacao = obj_endereco
 
-# Classe agenda herda de contacto
 class Agenda (Contacto):
     def __init__(self, nome, numero, email, cod_postal, obj_endereco):
         super().__init__(nome, numero, email, cod_postal, obj_endereco)
 
     def adicionar (self):
+        os.system("cls")
+        print("=== Adicionar Conacto ===\n")
         nome = input("Digite o nome: ")
         numero = int(input("Digite o número de telefone: "))
         email = input("Digite o e-mail: ")
@@ -30,7 +29,11 @@ class Agenda (Contacto):
         obj = Agenda(nome, numero, email, cod_postal, obj_endereco)
         lista.append(obj)
         os.system("cls")
-        print("Contacto Adicionado!")
+        print("Contacto Adicionado!\n")
+        opcao = input("1. Voltar para o Menu")
+        if opcao == 1:
+            os.system("cls")
+            return True
 
     def editar (self):
             valor = 0 
@@ -62,7 +65,7 @@ class Agenda (Contacto):
             position = int(input("Insira a posição do contacto: "))
         lista.pop(position)
         print(f"\nContacto Removido!")
-        
+
     def procurar(self):
         n = 0
         valor = 0
@@ -128,17 +131,17 @@ lista.append(obj)
 print("««««««« «««««« ««« «« « » »» »»» »»»»»» »»»»»»»")
 print(f"  «««--««    Agenda Telefonica    »»--»»»»»")
 print("    ««««« «««« ««« «« «» »» »»» »»»» »»»»»\n")
-
-print(f"1. Adicionar\n2. Editar\n3. Remover\n4. Procurar\n5. Listar")
-opcao = int(input("Escolha uma das opções de 1 - 5:\n"))
-match opcao:
-    case 1:
-        obj.adicionar()
-    case 2:
-        obj.editar()
-    case 3:
-        obj.remover()
-    case 4:
-        obj.procurar()
-    case 5:
-        obj.listar()
+while True:
+    print(f"1. Adicionar\n2. Editar\n3. Remover\n4. Procurar\n5. Listar")
+    opcao = int(input("Escolha uma das opções de 1 - 5:\n"))
+    match opcao:
+        case 1:
+            obj.adicionar()
+        case 2:
+            obj.editar()
+        case 3:
+            obj.remover()
+        case 4:
+            obj.procurar()
+        case 5:
+            obj.listar()
