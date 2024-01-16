@@ -32,8 +32,12 @@ class Agenda (Contacto):
         os.system("cls")
         print("Contacto Adicionado!")
 
+    def listar(self):
+        print(f"Todos contactos: {len(lista)}\n")
+        for elemento in lista:
+            print(f"{elemento.nome}: {elemento.numero}\n{elemento.email}\n")
 
-obj_endereco = Endereco ("Angola", "luanda", "cazenga", "17", "s/n")
+obj_endereco = Endereco ("Canadá", "Quebec", "Querry", "17", "s/n")
 obj = Agenda ("Andre", 925848946, "andrepinzi@gmail.com", "4319XA", obj_endereco)
 lista.append(obj)
 
@@ -49,24 +53,10 @@ obj_endereco = Endereco ("Angola", "luanda", "Viana", "nova_urbanizaçaõ", "145
 obj = Agenda ("Eriwami", 932897312, "eriwami09@gmail.com", "001YA", obj_endereco)
 lista.append(obj)
 
-obj_endereco = Endereco ("Angola", "Bengo", "Dembos", "nova_urbanizaçaõ", "1453")
-obj = Agenda ("Cistina", 934877942, "agostinho34@gmail.com", "209R2", obj_endereco)
+obj_endereco = Endereco ("Brazil", "Sao Paulo", "Santo Joao", "Quebrada", "14/3")
+obj = Agenda ("Cristina", 934877942, "cristina34@gmail.com", "209R2", obj_endereco)
 lista.append(obj)
-"""
-for elemento in lista:
-#listar detalhes dos contactos 
-    print("   ««««« «««« ««« «« « » »» »»» »»»» »»»»»")
-    print(f"{elemento.nome}")
-    print(elemento.numero)
-    print(elemento.email)
 
-#listar detalhes do Endereço
-    print(elemento.localizacao.pais)
-    print(elemento.localizacao.provincia)
-    print(elemento.localizacao.municipio)
-    print(elemento.localizacao.rua)
-    print(elemento.localizacao.casa)
-"""
 print("««««««« «««««« ««« «« « » »» »»» »»»»»» »»»»»»»")
 print(f"  «««--««    Agenda Telefonica    »»--»»»»»")
 print("    ««««« «««« ««« «« «» »» »»» »»»» »»»»»\n")
@@ -83,5 +73,4 @@ match opcao:
     case 4:
         obj.procurar()
     case 5:
-        for elemento in lista:
-            print(f"{elemento.nome}: {elemento.numero}")
+        obj.listar()
