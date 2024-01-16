@@ -49,7 +49,15 @@ class Agenda (Contacto):
                     valor += 1
                     if valor == (len(lista)):
                         print(f"\n{nome} nao foi encontrado!")
-                        
+
+    def remover(self):
+        valor = 0
+        for elemento in lista:
+            if valor <= (len(lista)):
+                print(f"{valor}. {elemento.nome}: {elemento.numero}")
+            valor += 1
+        position = int(input("Insira a posição do contacto: "))
+
     def procurar(self):
         n = 0
         valor = 0
