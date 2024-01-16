@@ -57,7 +57,12 @@ class Agenda (Contacto):
                 print(f"{valor}. {elemento.nome}: {elemento.numero}")
             valor += 1
         position = int(input("Insira a posição do contacto: "))
-
+        while position > (len(lista)):
+            print(f"Insira uma das posições sugeridas")
+            position = int(input("Insira a posição do contacto: "))
+        lista.pop(position)
+        print(f"\nContacto Removido!")
+        
     def procurar(self):
         n = 0
         valor = 0
