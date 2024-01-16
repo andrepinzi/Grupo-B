@@ -32,6 +32,24 @@ class Agenda (Contacto):
         os.system("cls")
         print("Contacto Adicionado!")
 
+    def editar (self):
+            valor = 0 
+            nome = input("Insira nome: ")
+            for elemento in lista:
+                if elemento.nome == nome:
+                    print(f"{nome} Encontrado")
+                    novo_nome = input("Insira novo nome: ")
+                    novo_numero = int(input("Insira Novo Numero:"))
+                    elemento.nome = novo_nome
+                    elemento.numero = novo_numero
+                    print(os.system("cls"))
+                    print(f"{elemento.nome}: {elemento.numero}")
+                    print(f"Concluido!")
+                else:
+                    valor += 1
+                    if valor == (len(lista)):
+                        print(f"\n{nome} nao foi encontrado!")
+
     def listar(self):
         print(f"Todos contactos: {len(lista)}\n")
         for elemento in lista:
