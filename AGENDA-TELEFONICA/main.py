@@ -14,8 +14,7 @@ class Agenda (Contacto):
         super().__init__(nome, numero, email, cod_postal, obj_endereco)
 
     def adicionar (self):
-        os.system("cls")
-        print("=== Adicionar Conacto ===\n")
+        print("=== == ADICIONANDO CONTACTO == ===\n")
         nome = input("Digite o nome: ")
         numero = int(input("Digite o número de telefone: "))
         email = input("Digite o e-mail: ")
@@ -30,30 +29,30 @@ class Agenda (Contacto):
         lista.append(obj)
         os.system("cls")
         print("Contacto Adicionado!\n")
-        opcao = input("1. Voltar para o Menu")
-        if opcao == 1:
-            os.system("cls")
-            return True
+        opcao = input("Qualquer Voltar para o Menu\n")
+        os.system("cls")
+        return True
 
     def editar (self):
+            print("\n=== == EDITANDO CONTACTO == ===\n")
             valor = 0 
-            nome = input("Insira nome: ")
+            nome = input("Insira nome do contacto que deseja editar: ")
             for elemento in lista:
                 if elemento.nome == nome:
-                    print(f"{nome} Encontrado")
+                    print(f"\n{nome} Encontrado\n")
                     novo_nome = input("Insira novo nome: ")
                     novo_numero = int(input("Insira Novo Numero:"))
                     elemento.nome = novo_nome
                     elemento.numero = novo_numero
-                    print(os.system("cls"))
                     print(f"{elemento.nome}: {elemento.numero}")
                     print(f"Concluido!")
                 else:
                     valor += 1
                     if valor == (len(lista)):
                         print(f"\n{nome} nao foi encontrado!")
-
+                    
     def remover(self):
+        print("\n=== == REMOVENDO CONTACTO == ===\n")
         valor = 0
         for elemento in lista:
             if valor <= (len(lista)):
@@ -62,11 +61,12 @@ class Agenda (Contacto):
         position = int(input("Insira a posição do contacto: "))
         while position > (len(lista)):
             print(f"Insira uma das posições sugeridas")
-            position = int(input("Insira a posição do contacto: "))
+            position = int(input("\nInsira a posição do contacto: "))
         lista.pop(position)
         print(f"\nContacto Removido!")
 
     def procurar(self):
+        print("\n=== == PESQUISANDO CONTACTO == ===\n")
         n = 0
         valor = 0
         while n == 0:
@@ -76,9 +76,9 @@ class Agenda (Contacto):
                 for elemento in lista:
                     if elemento.nome == nome:
                         if elemento.localizacao.pais == "Angola":
-                            print(f"{elemento.nome}: +244 {elemento.numero}")
+                            print(f"\n{elemento.nome}: +244 {elemento.numero}")
                         else:
-                            print(f"{elemento.nome}: +00 {elemento.numero}")
+                            print(f"\n{elemento.nome}: +00 {elemento.numero}")
                         n = 1
                     else:
                         valor += 1
@@ -90,9 +90,9 @@ class Agenda (Contacto):
                 for elemento in lista:
                     if elemento.numero == numero:
                         if elemento.localizacao.pais == "Angola":
-                            print(f"{elemento.nome}: +244 {elemento.numero}")
+                            print(f"\n{elemento.nome}: +244 {elemento.numero}")
                         else:
-                            print(f"{elemento.nome}: +00 {elemento.numero}")
+                            print(f"\n{elemento.nome}: +00 {elemento.numero}")
                         n = 1
                     else:
                         valor += 1
@@ -104,6 +104,7 @@ class Agenda (Contacto):
                 print(f"Escolha simplismente umas das opções: ")                        
 
     def listar(self):
+        print("\n=== == MOSTRANDO CONTACTOS == ===\n")
         print(f"Todos contactos: {len(lista)}\n")
         for elemento in lista:
             print(f"{elemento.nome}: {elemento.numero}\n{elemento.email}\n")
@@ -121,7 +122,7 @@ obj = Agenda ("Esperanca", 944471642, "esperanaatito@gmail.com", "0094A", obj_en
 lista.append(obj)
 
 obj_endereco = Endereco ("Angola", "luanda", "Viana", "nova_urbanizaçaõ", "1453")
-obj = Agenda ("Eriwami", 932897312, "eriwami09@gmail.com", "001YA", obj_endereco)
+obj = Agenda ("arlindo", 932897312, "arlindo09@gmail.com", "001YA", obj_endereco)
 lista.append(obj)
 
 obj_endereco = Endereco ("Brazil", "Sao Paulo", "Santo Joao", "Quebrada", "14/3")
@@ -129,11 +130,11 @@ obj = Agenda ("Cristina", 934877942, "cristina34@gmail.com", "209R2", obj_endere
 lista.append(obj)
 
 print("««««««« «««««« ««« «« « » »» »»» »»»»»» »»»»»»»")
-print(f"  «««--««    Agenda Telefonica    »»--»»»»»")
-print("    ««««« «««« ««« «« «» »» »»» »»»» »»»»»\n")
+print(f"  «««--««    AGENDA TELEFÓNICA    »»--»»»»»")
 while True:
-    print(f"1. Adicionar\n2. Editar\n3. Remover\n4. Procurar\n5. Listar")
-    opcao = int(input("Escolha uma das opções de 1 - 5:\n"))
+    print(" \n       =========== == == ===========\n")
+    print(f"1. ADICIONAR\n2. EDITAR\n3. REMOVER\n4. PROCURAR\n5. LISTAR")
+    opcao = int(input("\nEscolha uma das opções de 1 - 5:\n"))
     match opcao:
         case 1:
             obj.adicionar()
